@@ -42,13 +42,13 @@ return result;
 function safePeriodAfterOvulation(date, daysOfCycleDuration){
 const result = new Date(date);
 result.setDate(result.getDate() + daysOfCycleDuration)
-result.setDate(result.getDate() + 11)
+result.setDate(result.getDate() - 11)
 return result;
 };
 
 
-console.log(endOfCycle(date, daysOfCycleDuration));
-console.log(endOfFlowPeriod(date, daysOfFlowDuration));
-console.log(startOfFertileWindow(date, daysOfCycleDuration));
-console.log(endOfFertileWindow(date, daysOfCycleDuration));
-console.log(safePeriodAfterOvulation(date, daysOfCycleDuration));
+console.log("The end of your cycle would be ", endOfCycle(date, daysOfCycleDuration));
+console.log("The predicted end of your flow period would be ", endOfFlowPeriod(date, daysOfFlowDuration));
+console.log("The strt of your Ovulation window would be ", startOfFertileWindow(date, daysOfCycleDuration));
+console.log("The end of your ovulation period would be ",endOfFertileWindow(date, daysOfCycleDuration));
+console.log("Your safe period after your your Ovulation window would be",safePeriodAfterOvulation(date, daysOfCycleDuration), "to", endOfCycle(date, daysOfCycleDuration));
