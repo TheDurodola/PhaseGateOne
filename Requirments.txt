@@ -1,6 +1,22 @@
+<INPUT>
+
 1) Today's Date
 2) User's Name
 3) Date of Last Menstrual Period
+		Start Date
+
+
+
 4) Average Cycle Length
 	21 Days-35 Days
+	
 5) Average Period Length
+
+
+
+
+<CALCULATIONS>
+
+New Period Date = DoLMP + ACL + 1
+
+FertileDate =  (DoLMP + ACL) - 14
