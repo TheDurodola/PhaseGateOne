@@ -9,33 +9,25 @@ public class MenstrualApp{
 	Scanner input = new Scanner(System.in);
 	LocalDate todayDate = LocalDate.now();
 	
-	/*
 	System.out.print("What is the year: ");
 	int yearOfLastCycleStart = input.nextInt();
 	System.out.print("What is the month of your last cycle: ");
 	int monthOfLastCycleStart = input.nextInt();
 	System.out.print("What is the day of your last cycle: ");
 	int dayOfLastCycleStart = input.nextInt();
-	LocalDate dateOfCurrentMenstrualPeriodBegin = todayDate.of(yearOfLastCycleStart, monthOfLastCycleStart, dayOfLastCycleStart);	
-	*/
-
-
-	//LocalDate dateOfCurrentMenstrualPeriodBegin = todayDate.minusDays(daysOfLastCycleStart);	
-	LocalDate dateOfCurrentMenstrualPeriodBegin = todayDate.of(2025, 8, 3);	
-	
 	System.out.print("How many days does your  Menstrual Cycle usually last: ");
 	int usualPeriodDuration = input.nextInt();
 	System.out.print("How long does your flow days typically last for: ");
 	int flowDaysDuration = input.nextInt();
 
-	
+	LocalDate dateOfCurrentMenstrualPeriodBegin = todayDate.of(yearOfLastCycleStart, monthOfLastCycleStart, dayOfLastCycleStart);		
 	LocalDate dateOfCurrentMenstrualPeriodEnd = getDateOfCurrentMenstrualPeriodEnd(dateOfCurrentMenstrualPeriodBegin, usualPeriodDuration);
 	LocalDate dateOfFlowDaysEnd = getFlowDayEnd(dateOfCurrentMenstrualPeriodBegin, flowDaysDuration);
 	LocalDate dateOfPredictFetileDayMiddle  = getDateOfPredictFetileDayMiddle(dateOfCurrentMenstrualPeriodEnd);
 	LocalDate dateOfPredictFetileDayBegin  = getStartDayFertile(dateOfPredictFetileDayMiddle);
 	LocalDate dateOfPredictFetileDayEnd  = getEndDayFertile(dateOfPredictFetileDayMiddle);
 	LocalDate dateOfPredictSafeDaysEnd  = getSafeDayEnd(dateOfPredictFetileDayBegin);
-	LocalDate dateOfPredictedSafeDayAfterOvulation = getDateOfCurrentMenstrualPeriodEnd(dateOfPredictFetileDayEnd);
+	LocalDate dateOfPredictedStartSafeDayAfterOvulation = getDateOfCurrentMenstrualPeriodEnd(dateOfPredictFetileDayEnd);
 
 
 
@@ -46,15 +38,24 @@ public class MenstrualApp{
 	System.out.println("\nOvulation Period: " + dateOfPredictFetileDayBegin + " and " + dateOfPredictFetileDayEnd);
 	System.out.println("\n<>SAFE DAYS<>");
 	System.out.println("\nBefore Ovulation Period: " + dateOfCurrentMenstrualPeriodBegin + " to " + dateOfPredictSafeDaysEnd);
-	System.out.println("After Ovulation Period: " + dateOfPredictedSafeDayAfterOvulation + " to " + dateOfCurrentMenstrualPeriodEnd);
+	System.out.println("After Ovulation Period: " + dateOfPredictedStartSafeDayAfterOvulation + " to " + dateOfCurrentMenstrualPeriodEnd);
 	
 
 	
 	}
 
 static LocalDate getDateOfCurrentMenstrualPeriodEnd(LocalDate dateOfCurrentMenstrualPeriodBegin , int usualPeriodDuration){
+if(usualPeriodDuration>0){
+if(usualPeriodDuration>=21 && usualPeriodDuration<=35){
 LocalDate date = dateOfCurrentMenstrualPeriodBegin.plusDays(usualPeriodDuration-1);
-return date;
+return date;}
+if(usualPeriodDuration<=21 && usualPeriodDuration>=35){
+System.out.print("WARNING: Your Menstrual Cycle is out of the usual range. Kindly contact a health professional.");
+LocalDate date = dateOfCurrentMenstrualPeriodBegin.plusDays(usualPeriodDuration-1);
+return date;}
+}
+return null;
+
 }
 	
 static LocalDate getFlowDayEnd(LocalDate dateOfCurrentMenstrualPeriodBegin , int flowDaysDuration){
