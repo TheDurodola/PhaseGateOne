@@ -1,6 +1,5 @@
 import java.time.LocalDate;
 import java.util.Scanner;
-import java.time.temporal.ChronoUnit;
 
 public class MenstrualApp{
 	
@@ -22,23 +21,19 @@ public class MenstrualApp{
 
 	LocalDate dateOfCurrentMenstrualPeriodBegin = todayDate.of(yearOfLastCycleStart, monthOfLastCycleStart, dayOfLastCycleStart);		
 	LocalDate dateOfCurrentMenstrualPeriodEnd = getDateOfCurrentMenstrualPeriodEnd(dateOfCurrentMenstrualPeriodBegin, usualPeriodDuration);
-	LocalDate dateOfFlowDaysEnd = getFlowDayEnd(dateOfCurrentMenstrualPeriodBegin, flowDaysDuration);
 	LocalDate dateOfPredictFetileDayMiddle  = getDateOfPredictFetileDayMiddle(dateOfCurrentMenstrualPeriodEnd);
-	LocalDate dateOfPredictFetileDayBegin  = getStartDayFertile(dateOfPredictFetileDayMiddle);
 	LocalDate dateOfPredictFetileDayEnd  = getEndDayFertile(dateOfPredictFetileDayMiddle);
-	LocalDate dateOfPredictSafeDaysEnd  = getSafeDayEnd(dateOfPredictFetileDayBegin);
-	LocalDate dateOfPredictedStartSafeDayAfterOvulation = getDateOfCurrentMenstrualPeriodEnd(dateOfPredictFetileDayEnd);
-
+	
 
 
 	System.out.println("\nYour Current Menstrual Cycle began on " + dateOfCurrentMenstrualPeriodBegin);
 	System.out.println("Your Current Menstrual Cycle will end on " + dateOfCurrentMenstrualPeriodEnd);
 	System.out.println("\n<>FLOW DAYS<>");
-	System.out.print("Your flow period is expected to end on "+ dateOfFlowDaysEnd);		
-	System.out.println("\nOvulation Period: " + dateOfPredictFetileDayBegin + " and " + dateOfPredictFetileDayEnd);
+	System.out.print("Your flow period is expected to end on "+ getFlowDayEnd(dateOfCurrentMenstrualPeriodBegin, flowDaysDuration));		
+	System.out.println("\nOvulation Period: " + getStartDayFertile(dateOfPredictFetileDayMiddle) + " and " + dateOfPredictFetileDayEnd);
 	System.out.println("\n<>SAFE DAYS<>");
-	System.out.println("\nBefore Ovulation Period: " + dateOfCurrentMenstrualPeriodBegin + " to " + dateOfPredictSafeDaysEnd);
-	System.out.println("After Ovulation Period: " + dateOfPredictedStartSafeDayAfterOvulation + " to " + dateOfCurrentMenstrualPeriodEnd);
+	System.out.println("\nBefore Ovulation Period: " + dateOfCurrentMenstrualPeriodBegin + " to " + 	getSafeDayEnd(getStartDayFertile(dateOfPredictFetileDayMiddle)));
+	System.out.println("After Ovulation Period: " + getDateOfCurrentMenstrualPeriodEnd(dateOfPredictFetileDayEnd) + " to " + dateOfCurrentMenstrualPeriodEnd);
 	
 
 	
@@ -84,7 +79,7 @@ static LocalDate getSafeDayEnd(LocalDate dateOfPredictFetileDayBegin){
 LocalDate date = dateOfPredictFetileDayBegin.minusDays(1);
 return date;
 }
-
+	
 static LocalDate getDateOfCurrentMenstrualPeriodEnd(LocalDate dateOfPredictFetileDayEnd){
 LocalDate date = dateOfPredictFetileDayEnd.plusDays(1);
 return date;
