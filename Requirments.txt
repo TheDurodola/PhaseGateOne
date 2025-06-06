@@ -1,0 +1,6 @@
+1) Today's Date
+2) User's Name
+3) Date of Last Menstrual Period
+4) Average Cycle Length
+	21 Days-35 Days
+5) Average Period Length
