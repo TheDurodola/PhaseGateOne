@@ -52,10 +52,22 @@ switch(navigator){
 		System.out.println("The Day your period flow is predicated to end is : " + MenstrualAppFunctions.getEndOfFlowDays(dateOfStartOfMenstrualCycle, flowDaysDuration));
 		break;
 	case 3:
-		System.out.println("Your ovulation window is predicated to be between: " + MenstrualAppFunctions.getFertileWindowStartDate(endOfCycle) + " to " + 	MenstrualAppFunctions.getFertileWindowEndDate(endOfCycle));
+		try{
+			System.out.println("Your ovulation window is predicated to be between: " + MenstrualAppFunctions.getFertileWindowStartDate(endOfCycle) + " to " + 	
+			MenstrualAppFunctions.getFertileWindowEndDate(endOfCycle));
+		}
+		catch(NullPointerException npe){
+			System.out.println("\nPlease seek Medical Assistance.\n");
+		}
 		break;
 	case 4:
-		System.out.println("Your Safe days before your Ovulation Window are between: " + dateOfStartOfMenstrualCycle + " to " + 	MenstrualAppFunctions.getEndOfFlowDays(dateOfStartOfMenstrualCycle, flowDaysDuration) +"\nYour Safe days after your Ovulation Window are between: "+ 	MenstrualAppFunctions.getStartOfSafeDaysAfterFertileWindow(endOfCycle) +" to "+ endOfCycle);
+		try{
+			System.out.println("Your Safe days before your Ovulation Window are between: " + dateOfStartOfMenstrualCycle + " to " + 	MenstrualAppFunctions.getEndOfFlowDays(dateOfStartOfMenstrualCycle, flowDaysDuration) +"\nYour Safe days after your Ovulation Window are between: "+ 	MenstrualAppFunctions.getStartOfSafeDaysAfterFertileWindow(endOfCycle) +" to "+ endOfCycle);
+		}
+		catch(NullPointerException npe){
+			System.out.println("\nPlease seek Medical Assistance.\n");
+		}
+
 		break;
 	case 0:
 		System.out.print("Good bye, boo.");
