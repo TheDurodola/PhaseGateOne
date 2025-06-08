@@ -44,14 +44,32 @@ public class CheckOutAppTest{
 	itemPrices.add(1500);
 	itemQuantity.add(3);
 	itemPrices.add(2000);
-
+	itemQuantity.add(1);
+	itemPrices.add(1000);
 
 	int actual = CheckOutAppFunctions.getTotalAmount(itemQuantity, itemPrices);
-	int expected = 9000;
+	int expected = 10000;
 	
 	assertEquals(actual, expected);
 	}
 
+
+	@Test
+	void testThatGetTheDiscountedAmountWorks(){
+	int discount = 8;
+	int totalAmount = 10_000;
+	double actual = CheckOutAppFunctions.getDiscountedAmount(totalAmount, discount);
+	double expected = 9200;
+	assertEquals(actual, expected);
+	}
+
+	@Test
+	void testThatGetAmountAfterVATWorks(){
+	double discountAmount = 9200;
+	double actual =  CheckOutAppFunctions.getAmountAfterVAT(discountAmount);
+	double expected = 8510;
+	assertEquals(actual, expected);
+	}
 
 
 
