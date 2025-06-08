@@ -16,7 +16,17 @@ public class CheckOutAppFunctions{
 	return itemQuantityList;
 	}
 
-	static int getTotalAmount(ArrayList<Integer> itemPriceList , ArrayList<Integer> itemQuantityList){
+	static ArrayList<Integer> getTotalAmountArrayList(ArrayList<Integer> itemTotalAmount, ArrayList<Integer> itemPriceList, ArrayList<Integer> itemQuantityList){
+	int total = 0;
+	for(int index = 0; index < itemPriceList.size(); index++){
+	total = (itemPriceList.get(index) * itemQuantityList.get(index));
+	itemTotalAmount.add(total);
+	}
+	return itemTotalAmount;
+	}
+	
+	
+	static int getSubTotalAmount(ArrayList<Integer> itemPriceList , ArrayList<Integer> itemQuantityList){
 	int total = 0;
 	for(int index = 0; index < itemPriceList.size(); index++){
 	total = total + (itemPriceList.get(index) * itemQuantityList.get(index));
@@ -32,8 +42,7 @@ public class CheckOutAppFunctions{
 	}
 
 	int discountToBeDeducted = totalAmount * discountInPercentage/100;
-	double discountAmount = totalAmount - discountToBeDeducted;
-	return discountAmount;
+	return discountToBeDeducted;
 	}
 
 	static double getBillTotal(ArrayList<Integer> itemPriceList , ArrayList<Integer> itemQuantityList, int discountInPercentage){
@@ -54,7 +63,7 @@ public class CheckOutAppFunctions{
 
 
 	static double getBalance(ArrayList<Integer> itemPriceList , ArrayList<Integer> itemQuantityList, int discountInPercentage, int AmoundPaidByCustomer){
-	
+
 	int totalAmount = 0;
 	for(int index = 0; index < itemPriceList.size(); index++){
 	totalAmount = totalAmount + (itemPriceList.get(index) * itemQuantityList.get(index));
@@ -66,7 +75,26 @@ public class CheckOutAppFunctions{
 	double amountVAT = discountAmount * 0.075;
 	double amountAfterVAT = discountAmount - amountVAT;
 
-	double balance = amountAfterVAT - AmoundPaidByCustomer;
-	return Math.abs(balance);
+	double balance = AmoundPaidByCustomer - amountAfterVAT;
+	return balance;
 	}
+
+	
+	static void printInvoice(String nameOfCashier,String nameOfCustomer, ArrayList<String> itemNameList, ArrayList<Integer> itemQuantityList, ArrayList<Integer> itemPriceList, ArrayList<Integer> itemTotalAmount){
+	System.out.print("SEMICOLON STORES\nMAIN BRANCH\nLOCATION: 312, HERBERT MACAULAY WAY, SABO YABA, LAGOS.\nTEL: 080419419419\nDate: 18-Dec-25 8:45:32 PM\n");
+	System.out.printf("Cashier: %s%n", nameOfCashier);
+	System.out.printf("Customer name: %s%n", nameOfCustomer);
+		System.out.print("==========================================================\n");
+	System.out.printf("\t\t\tITEM\tQTY\tPRICE\tTOTAL(NGN)%n");
+	System.out.println("----------------------------------------------------------");
+	for(int index = 0; index < itemNameList.size(); index++){
+	System.out.printf("\t\t\t%s\t%d\t%d\t%d%n", itemNameList.get(index), itemPriceList.get(index), itemQuantityList.get(index), itemTotalAmount.get(index)); 
+	}
+System.out.println("----------------------------------------------------------");
+System.out.printf("\t\t\t\t\tSubTotal:%d\n", getSubTotalAmount(itemPriceList, itemQuantityList));
+System.out.printf("\t\t\t\t\tDiscount:%.2f\n", getDiscountedAmount(itemPriceList, itemQuantityList, 8));
+System.out.printf("\t\t\t\tVAT @ 7.5 %.2f", getBillTotal(itemPriceList, itemQuantityList, 8));
+
+	}
+	
 }
