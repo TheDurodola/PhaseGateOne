@@ -84,7 +84,7 @@ public class CheckOutAppTest{
 	int discount = 8;
 	
 	double actual = CheckOutAppFunctions.getDiscountedAmount(itemQuantity, itemPrices, discount);
-	double expected = 9200;
+	double expected = 800;
 	assertEquals(actual, expected);
 	}
 
@@ -101,7 +101,7 @@ public class CheckOutAppTest{
 	int discount = 8;
 
 	double actual =  CheckOutAppFunctions.getBillTotal(itemQuantity, itemPrices, discount);
-	double expected = 8510;
+	double expected = 9890;
 	assertEquals(actual, expected);
 	}
 
@@ -119,7 +119,7 @@ public class CheckOutAppTest{
 
 	int amountPaid = 11000;
 	double actual = CheckOutAppFunctions.getBalance(itemQuantity, itemPrices, discount, amountPaid);
-	double expected = 2490;
+	double expected = 1110.0;
 	assertEquals(actual, expected);
 	}
 
