@@ -23,6 +23,17 @@ public class CheckOutAppFunctions{
 	}
 	return total;
 	}
+	
+	static double getDiscountedAmount(int totalAmount, int discountInPercentage){
+	int discountToBeDeducted = totalAmount * discountInPercentage/100;
+	double discountAmount = totalAmount - discountToBeDeducted;
+	return discountAmount;
+	}
 
+	static double getAmountAfterVAT(double amount){
+	double amountVAT = amount * 0.075;
+	double amountAfterVAT = amount - amountVAT;
+	return amountAfterVAT;
+	}
 
 }
