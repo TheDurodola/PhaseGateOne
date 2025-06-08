@@ -56,17 +56,34 @@ public class CheckOutAppTest{
 
 	@Test
 	void testThatGetTheDiscountedAmountWorks(){
+	ArrayList<Integer> itemQuantity = new ArrayList<>();
+	ArrayList<Integer> itemPrices = new ArrayList<>();
+	itemQuantity.add(2);
+	itemPrices.add(1500);
+	itemQuantity.add(3);
+	itemPrices.add(2000);
+	itemQuantity.add(1);
+	itemPrices.add(1000);
 	int discount = 8;
-	int totalAmount = 10_000;
-	double actual = CheckOutAppFunctions.getDiscountedAmount(totalAmount, discount);
+	
+	double actual = CheckOutAppFunctions.getDiscountedAmount(itemQuantity, itemPrices, discount);
 	double expected = 9200;
 	assertEquals(actual, expected);
 	}
 
 	@Test
 	void testThatGetAmountAfterVATWorks(){
-	double discountAmount = 9200;
-	double actual =  CheckOutAppFunctions.getAmountAfterVAT(discountAmount);
+	ArrayList<Integer> itemQuantity = new ArrayList<>();
+	ArrayList<Integer> itemPrices = new ArrayList<>();
+	itemQuantity.add(2);
+	itemPrices.add(1500);
+	itemQuantity.add(3);
+	itemPrices.add(2000);
+	itemQuantity.add(1);
+	itemPrices.add(1000);
+	int discount = 8;
+
+	double actual =  CheckOutAppFunctions.getAmountAfterVAT(itemQuantity, itemPrices, discount);
 	double expected = 8510;
 	assertEquals(actual, expected);
 	}

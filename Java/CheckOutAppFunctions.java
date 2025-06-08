@@ -24,15 +24,28 @@ public class CheckOutAppFunctions{
 	return total;
 	}
 	
-	static double getDiscountedAmount(int totalAmount, int discountInPercentage){
+	static double getDiscountedAmount(ArrayList<Integer> itemPriceList, ArrayList<Integer> itemQuantityList, int discountInPercentage){
+	int totalAmount = 0;
+	for(int index = 0; index < itemPriceList.size(); index++){
+	totalAmount = totalAmount + (itemPriceList.get(index) * itemQuantityList.get(index));
+	}
 	int discountToBeDeducted = totalAmount * discountInPercentage/100;
 	double discountAmount = totalAmount - discountToBeDeducted;
 	return discountAmount;
 	}
 
-	static double getAmountAfterVAT(double amount){
-	double amountVAT = amount * 0.075;
-	double amountAfterVAT = amount - amountVAT;
+	static double getAmountAfterVAT(ArrayList<Integer> itemPriceList , ArrayList<Integer> itemQuantityList, int discountInPercentage){
+	
+	int totalAmount = 0;
+	for(int index = 0; index < itemPriceList.size(); index++){
+	totalAmount = totalAmount + (itemPriceList.get(index) * itemQuantityList.get(index));
+	}
+	
+	int discountToBeDeducted = totalAmount * discountInPercentage/100;
+	double discountAmount = totalAmount - discountToBeDeducted;
+
+	double amountVAT = discountAmount * 0.075;
+	double amountAfterVAT = discountAmount - amountVAT;
 	return amountAfterVAT;
 	}
 
