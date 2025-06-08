@@ -119,6 +119,29 @@ System.out.print("\n==========================================================\n
 
 
 
+	static void printReceipt(String nameOfCashier,String nameOfCustomer, ArrayList<String> itemNameList, ArrayList<Integer> itemQuantityList, ArrayList<Integer> itemPriceList, ArrayList<Integer> itemTotalAmount, int discountInPercentage, int AmoundPaidByCustomer){
+	System.out.print("\n\nSEMICOLON STORES\nMAIN BRANCH\nLOCATION: 312, HERBERT MACAULAY WAY, SABO YABA, LAGOS.\nTEL: 080419419419\nDate: 18-Dec-25 8:45:32 PM\n");
+	System.out.printf("Cashier: %s%n", nameOfCashier);
+	System.out.printf("Customer name: %s%n", nameOfCustomer);
+		System.out.print("==========================================================\n");
+	System.out.printf("\t\t\tITEM\tQTY\tPRICE\tTOTAL(NGN)%n");
+	System.out.println("----------------------------------------------------------");
+	for(int index = 0; index < itemNameList.size(); index++){
+	System.out.printf("\t\t\t%s\t%d\t%d\t%d%n", itemNameList.get(index), itemPriceList.get(index), itemQuantityList.get(index), itemTotalAmount.get(index)); 
+	}
+System.out.println("\n----------------------------------------------------------");
+System.out.printf("\t\t\t\t\tSubTotal:%d\n", getSubTotalAmount(itemPriceList, itemQuantityList));
+System.out.printf("\t\t\t\t\tDiscount:%.2f\n", getDiscountedAmount(itemPriceList, itemQuantityList, 8));
+System.out.printf("\t\t\t\t\tVAT @ 7.5 %.2f\n", getVATAmount(itemPriceList, itemQuantityList, 8));
+System.out.print("==========================================================\n");
+System.out.printf("\t\t\t\t      Bill Total: %.2f\n", getBillTotal(itemPriceList, itemQuantityList, discountInPercentage));
+System.out.printf("\t\t\t\t      Amount Paid: %d\n", AmoundPaidByCustomer);
+System.out.printf("\t\t\t\t      Balance: %.2f", getBalance(itemPriceList , itemQuantityList, discountInPercentage, AmoundPaidByCustomer));
+System.out.print("\n==========================================================\n");
+System.out.printf("\t\tTHANK YOU FOR YOUR PATRONAGE");
+System.out.print("\n==========================================================\n");
+	}
+
 
 
 
