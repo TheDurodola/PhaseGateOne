@@ -72,7 +72,7 @@ public class CheckOutAppTest{
 	}
 
 	@Test
-	void testThatGetAmountAfterVATWorks(){
+	void testThatGetBillTotal(){
 	ArrayList<Integer> itemQuantity = new ArrayList<>();
 	ArrayList<Integer> itemPrices = new ArrayList<>();
 	itemQuantity.add(2);
@@ -83,11 +83,29 @@ public class CheckOutAppTest{
 	itemPrices.add(1000);
 	int discount = 8;
 
-	double actual =  CheckOutAppFunctions.getAmountAfterVAT(itemQuantity, itemPrices, discount);
+	double actual =  CheckOutAppFunctions.getBillTotal(itemQuantity, itemPrices, discount);
 	double expected = 8510;
 	assertEquals(actual, expected);
 	}
 
+	@Test
+	void TestGetBalance(){
+	ArrayList<Integer> itemQuantity = new ArrayList<>();
+	ArrayList<Integer> itemPrices = new ArrayList<>();
+	itemQuantity.add(2);
+	itemPrices.add(1500);
+	itemQuantity.add(3);
+	itemPrices.add(2000);
+	itemQuantity.add(1);
+	itemPrices.add(1000);
+	int discount = 8;
+
+	int amountPaid = 11000;
+	double actual = CheckOutAppFunctions.getBalance(itemQuantity, itemPrices, discount, amountPaid);
+	double expected = 2490;
+	assertEquals(actual, expected);
+
+	}
 
 
 
