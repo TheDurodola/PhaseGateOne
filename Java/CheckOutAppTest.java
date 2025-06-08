@@ -35,9 +35,26 @@ public class CheckOutAppTest{
 	expected.add(2);
 	assertEquals(actual, expected);
 	}
+
+	@Test
+	void testTheGetTotalAmountWork(){
+	ArrayList<Integer> itemQuantity = new ArrayList<>();
+	ArrayList<Integer> itemPrices = new ArrayList<>();
+	ArrayList<Integer> itemTotalAmount = new ArrayList<>();
+	itemQuantity.add(2);
+	itemPrices.add(1500);
+	itemQuantity.add(1);
+	itemPrices.add(2000);
+	itemTotalAmount = CheckOutAppFunctions.getTotalAmountArrayList(itemTotalAmount, itemPrices, itemQuantity);
+	
+	ArrayList<Integer> expected = new ArrayList<>();
+	expected.add(3000);
+	expected.add(2000);
+	assertEquals(itemTotalAmount, expected);
+	}
 	
 	@Test
-	void testThatGetTotalAmountWorks(){
+	void testThatGetSubTotalAmountWork(){
 	ArrayList<Integer> itemQuantity = new ArrayList<>();
 	ArrayList<Integer> itemPrices = new ArrayList<>();
 	itemQuantity.add(2);
@@ -47,7 +64,7 @@ public class CheckOutAppTest{
 	itemQuantity.add(1);
 	itemPrices.add(1000);
 
-	int actual = CheckOutAppFunctions.getTotalAmount(itemQuantity, itemPrices);
+	int actual = CheckOutAppFunctions.getSubTotalAmount(itemQuantity, itemPrices);
 	int expected = 10000;
 	
 	assertEquals(actual, expected);
@@ -104,8 +121,9 @@ public class CheckOutAppTest{
 	double actual = CheckOutAppFunctions.getBalance(itemQuantity, itemPrices, discount, amountPaid);
 	double expected = 2490;
 	assertEquals(actual, expected);
-
 	}
+
+	
 
 
 
