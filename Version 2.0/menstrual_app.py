@@ -4,19 +4,23 @@ from menstrual_app_functions import get_date_of_current_menstrual_cycle_end_date
 
 print("WELCOME TO YRSD BOO TING")
 print("Kindly enter your details below;\n")
+try:
+	yyyy = int(input("Enter the year(20XX): "))
+	mm = int(input("Enter the month your cycle started(Jan=>1): "))
+	dd = int(input("Enter the day your cycle started(1-31): "))
+	cycle_duration = int(input("\nEnter your average cycle length (21-35 days): "))
+	flow_duration = int(input("Enter your average flow length (2-10 days): "))
+except ValueError:
+	sys.exit("INVALID INPUT")
 
-yyyy = int(input("Enter the year(20XX): "))
-mm = int(input("Enter the month your cycle started(Jan=>1): "))
-dd = int(input("Enter the day your cycle started(1-31): "))
-cycle_duration = int(input("\nEnter your average cycle length (21-35 days): "))
-flow_duration = int(input("Enter your average flow length (2-10 days): "))
+
 
 date_that_cycle_started = datetime.date(yyyy, mm, dd)
 try:
 	current_menstrual_end_date = get_date_of_current_menstrual_cycle_end_date(date_that_cycle_started, cycle_duration)
 	date_of_ovulation_end = get_end_date_of_ovulation(current_menstrual_end_date)
 except TypeError:
-	print("\nENTER VALID DETAILS")
+	print("\nINVALID INPUT")
 	sys.exit("Sorry, boo. :(")
 
 loop_condition = 0
