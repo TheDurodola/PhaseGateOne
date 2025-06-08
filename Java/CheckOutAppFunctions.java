@@ -25,16 +25,18 @@ public class CheckOutAppFunctions{
 	}
 	
 	static double getDiscountedAmount(ArrayList<Integer> itemPriceList, ArrayList<Integer> itemQuantityList, int discountInPercentage){
+
 	int totalAmount = 0;
 	for(int index = 0; index < itemPriceList.size(); index++){
 	totalAmount = totalAmount + (itemPriceList.get(index) * itemQuantityList.get(index));
 	}
+
 	int discountToBeDeducted = totalAmount * discountInPercentage/100;
 	double discountAmount = totalAmount - discountToBeDeducted;
 	return discountAmount;
 	}
 
-	static double getAmountAfterVAT(ArrayList<Integer> itemPriceList , ArrayList<Integer> itemQuantityList, int discountInPercentage){
+	static double getBillTotal(ArrayList<Integer> itemPriceList , ArrayList<Integer> itemQuantityList, int discountInPercentage){
 	
 	int totalAmount = 0;
 	for(int index = 0; index < itemPriceList.size(); index++){
@@ -49,4 +51,22 @@ public class CheckOutAppFunctions{
 	return amountAfterVAT;
 	}
 
+
+
+	static double getBalance(ArrayList<Integer> itemPriceList , ArrayList<Integer> itemQuantityList, int discountInPercentage, int AmoundPaidByCustomer){
+	
+	int totalAmount = 0;
+	for(int index = 0; index < itemPriceList.size(); index++){
+	totalAmount = totalAmount + (itemPriceList.get(index) * itemQuantityList.get(index));
+	}
+	
+	int discountToBeDeducted = totalAmount * discountInPercentage/100;
+	double discountAmount = totalAmount - discountToBeDeducted;
+
+	double amountVAT = discountAmount * 0.075;
+	double amountAfterVAT = discountAmount - amountVAT;
+
+	double balance = amountAfterVAT - AmoundPaidByCustomer;
+	return Math.abs(balance);
+	}
 }
