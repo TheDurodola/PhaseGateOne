@@ -1,26 +1,19 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class CreditCardValidator{
 public static void main(String...args){
-	
-
 	Scanner input = new Scanner(System.in);
 
+	System.out.print("ENTER THE DIGITS LENGTH: ");
+	int digitLength = input.nextInt();
 
-	System.out.print("Enter Card Number: ");
-	String cardNumber = input.next();
-
-
-	//int sum1 = CreditCardValidatorFunctions.getSumOfOddPositionedNumber(cardNumber);
-	//int sum2 = CreditCardValidatorFunctions.getSumOfEvenPositionedNumber(cardNumber);
-
-
-	System.out.printf("******************************************************\n");
-	CreditCardValidatorFunctions.getIssuer(cardNumber);
-	System.out.printf("**Credit Card Digit Number: %s%n",cardNumber);
-	System.out.printf("**Credit Card Digit Number: %d%n", cardNumber.length());
-	//CreditCardValidatorFunctions.checkValidity(sum1, sum2);
-	System.out.printf("******************************************************");
-
+	int [] digits = CreditCardValidatorFunctions.getCardNumberAsArray(digitLength);
+	int sum1 = CreditCardValidatorFunctions.getSumOfOddPositionedDigits(digits);
+	int sum2 = CreditCardValidatorFunctions.getSumOfEvenPositionedDigits(digits);
+	
+	CreditCardValidatorFunctions.getCardIssuer(digits);
+	CreditCardValidatorFunctions.checkValidity(sum1, sum2);
+	
 }
 }
