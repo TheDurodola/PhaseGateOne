@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.time.LocalDate;
 public class CheckOutAppFunctions{
 	
 	static ArrayList<String> addItemNameToItemNamesList(String itemName, ArrayList<String> itemNameList){
@@ -96,7 +97,8 @@ public class CheckOutAppFunctions{
 
 	
 	static void printInvoice(String nameOfCashier,String nameOfCustomer, ArrayList<String> itemNameList, ArrayList<Integer> itemQuantityList, ArrayList<Integer> itemPriceList, ArrayList<Integer> itemTotalAmount, int discountInPercentage){
-	System.out.print("\n\nSEMICOLON STORES\nMAIN BRANCH\nLOCATION: 312, HERBERT MACAULAY WAY, SABO YABA, LAGOS.\nTEL: 080419419419\nDate: 18-Dec-25 8:45:32 PM\n");
+	LocalDate date = LocalDate.now();
+	System.out.printf("\n\nSEMICOLON STORES\nMAIN BRANCH\nLOCATION: 312, HERBERT MACAULAY WAY, SABO YABA, LAGOS.\nTEL: 080419419419\nDate: %s 8:45:32 PM\n", date);
 	System.out.printf("Cashier: %s%n", nameOfCashier);
 	System.out.printf("Customer name: %s%n", nameOfCustomer);
 		System.out.print("==========================================================\n");
@@ -120,7 +122,8 @@ System.out.print("\n==========================================================\n
 
 
 	static void printReceipt(String nameOfCashier,String nameOfCustomer, ArrayList<String> itemNameList, ArrayList<Integer> itemQuantityList, ArrayList<Integer> itemPriceList, ArrayList<Integer> itemTotalAmount, int discountInPercentage, int AmoundPaidByCustomer){
-	System.out.print("\n\nSEMICOLON STORES\nMAIN BRANCH\nLOCATION: 312, HERBERT MACAULAY WAY, SABO YABA, LAGOS.\nTEL: 080419419419\nDate: 18-Dec-25 8:45:32 PM\n");
+	LocalDate date = LocalDate.now();
+	System.out.printf("\n\nSEMICOLON STORES\nMAIN BRANCH\nLOCATION: 312, HERBERT MACAULAY WAY, SABO YABA, LAGOS.\nTEL: 080419419419\nDate: %s 8:45:32 PM\n", date);
 	System.out.printf("Cashier: %s%n", nameOfCashier);
 	System.out.printf("Customer name: %s%n", nameOfCustomer);
 		System.out.print("==========================================================\n");
