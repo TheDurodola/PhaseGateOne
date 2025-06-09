@@ -40,7 +40,26 @@ class TestCardCardValidator(TestCase):
 
 
 	def test_that_get_sum_of_numbers_multiplied_by_two_at_odd_positions(self):
-		credit_card_validator_functions.get_sum_of_odd_postioned_numbers([3,7,8,8,5,7,6,0,1,8,4,0,2,4,7,8])
+		actual = credit_card_validator_functions.get_sum_of_odd_postioned_numbers(3788576018402478)
+		expected = 36
+		self.assertEqual(actual, expected)
+
+
+	def test_that_get_sum_of_numbers_even_positions(self):
+		actual = credit_card_validator_functions.get_sum_of_even_postioned_numbers(3788576018402478)
+		expected = 42
+		self.assertEqual(actual, expected)
+
+
+	def test_that_validity_of_card_number(self):
+		actual = credit_card_validator_functions.get_validity(36,42)
+		expected = False
+		self.assertEqual(actual, expected)
+
+
+
+
+
 
 		
 		
