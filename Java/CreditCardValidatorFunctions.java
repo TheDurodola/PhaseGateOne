@@ -51,11 +51,11 @@ return digits;
 
 
 static void getCardIssuer(int[] array){
-if(array[0]==4){System.out.print("**Credit Card Type: VISA");}
-else if(array[0]==5){System.out.print("**Credit Card Type: MASTERCARD");}
-else if(array[0]==6){System.out.print("**Credit Card Type: DISCOVER");}
-else if(array[0]==3 && array[1]==7){System.out.print("**Credit Card Type: AMERICAN EXPRESS");}
-else{System.out.print("**Credit Card Type: INVALID CARD");}
+if(array[0]==4){System.out.println("**Credit Card Type: VISA");}
+else if(array[0]==5){System.out.println("**Credit Card Type: MASTERCARD");}
+else if(array[0]==6){System.out.println("**Credit Card Type: DISCOVER");}
+else if(array[0]==3 && array[1]==7){System.out.println("**Credit Card Type: AMERICAN EXPRESS");}
+else{System.out.println("**Credit Card Type: INVALID CARD");}
 }
 
 
@@ -101,8 +101,14 @@ static int getSumOfEvenPositionedDigits(int [] array){
 
 static void checkValidity(int sum1, int sum2){
 int mainSum = sum1 + sum2;
-if(mainSum%10==0){System.out.print("**Credit Card Validity: VALID");}
-if(mainSum%10!=0){System.out.print("**Credit Card Validity: INVALID");}
+if(mainSum%10==0){System.out.println("**Credit Card Validity: VALID");}
+if(mainSum%10!=0){System.out.println("**Credit Card Validity: INVALID");}
+}
+
+static void printCardNumber(int [] array){
+for(int index = 0; index< array.length; index++){
+System.out.print(array[index]);
+}
 }
 
 }
