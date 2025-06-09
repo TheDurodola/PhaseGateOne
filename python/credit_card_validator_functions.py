@@ -1,44 +1,107 @@
 import math
 
-def get_credit_card_brand(credit_card_number):
+def get_list_of_single_digits(credit_card_number):
+	list_of_single_digits = None
+	
 	length_of_digits = len(str(credit_card_number))
-	if length_of_digits>=13 and length_of_digits <= 16:
+	if length_of_digits>=13 and length_of_digits<=16:
+		list_of_single_digits = []
+
 		if length_of_digits == 13:
-			if math.floor(credit_card_number/4000000000000) == 1:
-					print("VISA")
-			if math.floor(credit_card_number/5000000000000) == 1:
-					print("MASTERCARD")
-			if math.floor(credit_card_number/6000000000000) == 1:
-					print("DISCOVER")
-			if math.floor(credit_card_number/3700000000000) == 1:
-					print("AMEX")
+			divisor = 1000000000000
+			for index in range(13): 
+				digit_picker = math.floor(credit_card_number/divisor)
+				list_of_single_digits.append(digit_picker)
+				credit_card_number = credit_card_number % divisor
+				divisor = divisor / 10
 
 		if length_of_digits == 14:
-			if math.floor(credit_card_number/40000000000000) == 1:
-					print("VISA")
-			if math.floor(credit_card_number/50000000000000) == 1:
-					print("MASTERCARD")
-			if math.floor(credit_card_number/60000000000000) == 1:
-					print("DISCOVER")
-			if math.floor(credit_card_number/37000000000000) == 1:
-					print("AMEX")
+			divisor = 10000000000000
+			for index in range(14): 
+				digit_picker = math.floor(credit_card_number/divisor)
+				list_of_single_digits.append(digit_picker)
+				credit_card_number = credit_card_number % divisor
+				divisor = divisor / 10
 
 		if length_of_digits == 15:
-			if math.floor(credit_card_number/400000000000000) == 1:
-					print("VISA")
-			if math.floor(credit_card_number/500000000000000) == 1:
-					print("MASTERCARD")
-			if math.floor(credit_card_number/600000000000000) == 1:
-					print("DISCOVER")
-			if math.floor(credit_card_number/370000000000000) == 1:
-					print("AMEX")
+			divisor = 100000000000000
+			for index in range(15): 
+				digit_picker = math.floor(credit_card_number/divisor)
+				list_of_single_digits.append(digit_picker)
+				credit_card_number = credit_card_number % divisor
+				divisor = divisor / 10
 
 		if length_of_digits == 16:
-			if math.floor(credit_card_number/4000000000000000) == 1:
-					print("VISA")
-			if math.floor(credit_card_number/5000000000000000) == 1:
-					print("MASTERCARD")
-			if math.floor(credit_card_number/6000000000000000) == 1:
-					print("DISCOVER")
-			if math.floor(credit_card_number/3700000000000000) == 1:
-					print("AMEX")
+			divisor = 1000000000000000
+			for index in range(16): 
+				digit_picker = math.floor(credit_card_number/divisor)
+				list_of_single_digits.append(digit_picker)
+				credit_card_number = credit_card_number % divisor
+				divisor = divisor / 10
+	
+		return 	list_of_single_digits
+			
+
+def get_issuer(credit_card_number):
+	list_of_single_digits = None
+	
+	length_of_digits = len(str(credit_card_number))
+	if length_of_digits>=13 and length_of_digits<=16:
+		list_of_single_digits = []
+
+		if length_of_digits == 13:
+			divisor = 1000000000000
+			for index in range(13): 
+				digit_picker = math.floor(credit_card_number/divisor)
+				list_of_single_digits.append(digit_picker)
+				credit_card_number = credit_card_number % divisor
+				divisor = divisor / 10
+
+		if length_of_digits == 14:
+			divisor = 10000000000000
+			for index in range(14): 
+				digit_picker = math.floor(credit_card_number/divisor)
+				list_of_single_digits.append(digit_picker)
+				credit_card_number = credit_card_number % divisor
+				divisor = divisor / 10
+
+		if length_of_digits == 15:
+			divisor = 100000000000000
+			for index in range(15): 
+				digit_picker = math.floor(credit_card_number/divisor)
+				list_of_single_digits.append(digit_picker)
+				credit_card_number = credit_card_number % divisor
+				divisor = divisor / 10
+
+		if length_of_digits == 16:
+			divisor = 1000000000000000
+			for index in range(16): 
+				digit_picker = math.floor(credit_card_number/divisor)
+				list_of_single_digits.append(digit_picker)
+				credit_card_number = credit_card_number % divisor
+				divisor = divisor / 10
+
+	if list_of_single_digits[0] == 4:
+		print("VISA")
+	if list_of_single_digits[0] == 5:
+		print("MASTERCARD")
+	if list_of_single_digits[0] == 6:
+		print("DISCOVER")
+	if list_of_single_digits[0] == 3 and list_of_single_digits[1] == 7:
+		print("AMERICAN EXPRESS")
+
+
+def get_sum_of_odd_postioned_numbers(x):
+	list_of_numbers = []
+	list_picker = 0
+
+	while list_picker < len(x):
+		list_of_numbers.append(x[list_picker])
+		list_picker += 2
+
+
+			
+
+	print(list_of_numbers)
+  
+	
