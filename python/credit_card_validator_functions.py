@@ -86,7 +86,7 @@ def get_issuer(credit_card_number):
 		print("**Credit Card Type: DISCOVER")
 	if list_of_single_digits[0] == 3 and list_of_single_digits[1] == 7:
 		print("**Credit Card Type: AMERICAN EXPRESS")
-	pass
+	
 
 def get_sum_of_odd_postioned_numbers(credit_card_number):
 	list_of_single_digits = None
