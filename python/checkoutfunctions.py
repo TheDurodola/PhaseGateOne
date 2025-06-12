@@ -66,3 +66,60 @@ def get_balance(list_of_item_prices, list_of_item_quantities, discount, amount_p
 	billed_amount = amount + vat_amount
 	balance = amount_paid - billed_amount
 	return balance
+
+
+def print_invoive(cashier_name, customer_name, list_of_item_names, list_of_item_prices, list_of_item_quantity, discount):
+	list_of_item_totals = []
+	get_list_of_items_total(list_of_item_prices, list_of_item_quantity, list_of_item_totals)
+	print("")
+	print("SEMICOLON STORES")
+	print("MAIN BRANCH")
+	print("LOCATION: 312, HERBERT MACAULAY WAY, SABO YABA, LAGOS.")
+	print("TEL: 03293828343")
+	print("DATE: 18-DEC-25 8:48:11 PM")
+	print(f"Cashier: {cashier_name}")
+	print(f"Customer Name: {customer_name}")
+	print("==================================================")
+	print("		ITEM	QTY	PRICE	TOTAL(NGN)")
+	print("--------------------------------------------------")
+	for item in range(len(list_of_item_names)):
+		print(f"		{list_of_item_names[item]}	{list_of_item_prices[item]}	{list_of_item_quantity[item]}	{list_of_item_totals[item]}")
+	print("--------------------------------------------------")
+	print(f"				Sub Total: {get_sub_total(list_of_item_prices, list_of_item_quantity)}")
+	print(f"				Discount: {get_discount_amount(list_of_item_prices, list_of_item_quantity, discount)}")
+	print(f"				VAT @ 7.5%: {get_VAT_amount(list_of_item_prices, list_of_item_quantity, discount)}")
+	print("==================================================")
+	print(f"				Bill Total: {get_billed_amount(list_of_item_prices, list_of_item_quantity, discount)}")
+	print("==================================================")
+	print(f"THIS IS NOT AN RECEIPT. KINDLY PAY {get_billed_amount(list_of_item_prices, list_of_item_quantity, discount)}")
+	print("==================================================")
+
+
+
+def print_receipt(cashier_name, customer_name, list_of_item_names, list_of_item_prices, list_of_item_quantity, discount, amount_paid):
+	list_of_item_totals = []
+	get_list_of_items_total(list_of_item_prices, list_of_item_quantity, list_of_item_totals)
+	print("")
+	print("SEMICOLON STORES")
+	print("MAIN BRANCH")
+	print("LOCATION: 312, HERBERT MACAULAY WAY, SABO YABA, LAGOS.")
+	print("TEL: 03293828343")
+	print("DATE: 18-DEC-25 8:48:11 PM")
+	print(f"Cashier: {cashier_name}")
+	print(f"Customer Name: {customer_name}")
+	print("==================================================")
+	print("		ITEM	QTY	PRICE	TOTAL(NGN)")
+	print("--------------------------------------------------")
+	for item in range(len(list_of_item_names)):
+		print(f"		{list_of_item_names[item]}	{list_of_item_prices[item]}	{list_of_item_quantity[item]}	{list_of_item_totals[item]}")
+	print("--------------------------------------------------")
+	print(f"				Sub Total: {get_sub_total(list_of_item_prices, list_of_item_quantity)}")
+	print(f"				Discount: {get_discount_amount(list_of_item_prices, list_of_item_quantity, discount)}")
+	print(f"				VAT @ 7.5%: {get_VAT_amount(list_of_item_prices, list_of_item_quantity, discount)}")
+	print("==================================================")
+	print(f"				Bill Total: {get_billed_amount(list_of_item_prices, list_of_item_quantity, discount)}")
+	print(f"				Amount Paid: {amount_paid}")
+	print(f"				Balance: {get_balance(list_of_item_prices, list_of_item_quantity, discount, amount_paid)}")
+	print("==================================================")
+	print(f"THANK YOU FOR YOUR PATRONAGE")
+	print("==================================================")
