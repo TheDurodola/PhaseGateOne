@@ -21,6 +21,16 @@ public class StudentGradeFunctions{
 	}
 
 
+	static int[] getAverageOfScores(int [] arrayOfTotal, int [][] arrayOfScores ){
+	int [] arrayOfAvg = new int[arrayOfTotal.length];
+
+		int divisor = arrayOfScores[0].length;
+	for(int index = 0; index < arrayOfTotal.length; index++){
+		arrayOfAvg[index] = arrayOfTotal[index]/divisor;
+	}
+
+	return arrayOfAvg;	
+	}
 
 
 

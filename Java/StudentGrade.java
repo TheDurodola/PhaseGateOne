@@ -36,6 +36,7 @@ public class StudentGrade{
 	}	
 
 	int [] totalArray = StudentGradeFunctions.getTotalOfScore(array);
+	int [] arrayOfAvg = StudentGradeFunctions.getAverageOfScores(totalArray, array);
 	System.out.print("STUDENT		"); 
 	for(int index = 0; index < array[0].length; index++){
 		System.out.printf("SUB%d	", index+1);
@@ -48,7 +49,7 @@ public class StudentGrade{
 		for(int count = 0; count < array[0].length; count++){
 			System.out.printf("	%d",array[index][count]);
 		}
-	System.out.printf("	%d%n", totalArray[index]);
+	System.out.printf("	%d	%d%n", totalArray[index], arrayOfAvg[index]);
 		
 	}
 
