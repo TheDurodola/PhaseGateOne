@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 public class StudentGrade{
 
@@ -14,15 +15,15 @@ public class StudentGrade{
 
 
 	for(int counter = 0; counter < array.length; counter++){
-		for(int index = 0; index < array.length; index++){
-			System.out.printf("Entering score for student %d\n", counter);
-			System.out.printf("Enter score for subject %d", index);
+		for(int index = 0; index < array[0].length; index++){
+			System.out.printf("Entering score for student %d\n", counter+1);
+			System.out.printf("Enter score for subject %d\n", index+1);
 			int score = input.nextInt();
 			array[counter][index]= score;	
 		}
 	}	
 
-
+	System.out.print(Arrays.deepToString(array));
 
 
 	}
