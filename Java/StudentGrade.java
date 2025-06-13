@@ -21,22 +21,36 @@ public class StudentGrade{
 					System.out.printf("Enter score for subject %d\n", index+1);
 					score = input.nextInt();
 					if(score>=0 && score<=100){
+						array[counter][index]= score;
 						break;
 					}
 				
-			array[counter][index]= score;
+			
 			}
-		System.out.println("\nSaving >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");		System.out.println("Saved succesfully\n");	
+		System.out.println("\nSaving >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");		
+		System.out.println("Saved succesfully\n");	
 		}
-
 		System.out.println("=================================================================");
+		
 
 	}	
-	System.out.print("STUDENT	"); 
+
+	int [] totalArray = StudentGradeFunctions.getTotalOfScore(array);
+	System.out.print("STUDENT		"); 
 	for(int index = 0; index < array[0].length; index++){
 		System.out.printf("SUB%d	", index+1);
 	}
-	System.out.print("TOTAL	AVE	POS");
+	System.out.println("TOTAL	AVE	POS");
+	System.out.println("=================================================================");
+
+	for(int index = 0; index < array.length;index++){
+	System.out.printf("Student%d", index+1);
+		for(int count = 0; count < array[0].length; count++){
+			System.out.printf("	%d",array[index][count]);
+		}
+	System.out.printf("	%d%n", totalArray[index]);
+		
+	}
 
 	
 
