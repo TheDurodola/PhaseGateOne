@@ -1,6 +1,6 @@
 import datetime
 import sys
-from menstrual_app_functions import get_date_of_current_menstrual_cycle_end_date, get_date_of_end_of_flow_day, get_start_date_of_ovulation, get_end_date_of_ovulation, get_safe_day_start_after_ovulation
+from menstrualappfunctions import *
 
 print("WELCOME TO YRSD BOO TING")
 print("Kindly enter your details below;\n")
