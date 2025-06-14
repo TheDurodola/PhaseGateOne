@@ -7,3 +7,7 @@ def add_contact_to_phonebook(list, first_name, last_name, phone_number):
 			new_contact.append(phone_number)
 			list.append(new_contact)
 			return list
+		else:
+			print("INVALID NUMBER")
+	else:
+		print("INVALID NAME INPUT");
