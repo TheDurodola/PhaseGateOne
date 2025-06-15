@@ -1,6 +1,7 @@
 const input = require("prompt-sync");
 const prompt = input();
-
+const now = new Date();
+const year = now.getFullYear();
 
 function endOfCycle(date, daysOfCycleDurationOfCycleDuration){
 const result = new Date(date);
@@ -45,7 +46,6 @@ WELCOME TO YRSD BOO TING
 Kindly enter the following details`;
 
 console.log(welcomeMessage);
-let year = Number(prompt("Enter the year(YYYY): "));
 let month = Number(prompt("Enter the month of your last cycle(MM): "));
 let day = Number(prompt("Enter the day of your last cycle(DD): "));
 let daysOfCycleDuration = Number(prompt("How long does your cycle typically last: "));

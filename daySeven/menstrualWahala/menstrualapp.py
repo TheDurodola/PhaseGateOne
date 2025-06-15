@@ -2,10 +2,12 @@ import datetime
 import sys
 from menstrualappfunctions import *
 
+now = datetime.datetime.now()
+
 print("WELCOME TO YRSD BOO TING")
 print("Kindly enter your details below;\n")
 try:
-	yyyy = int(input("Enter the year(20XX): "))
+	yyyy = now.year
 	mm = int(input("Enter the month your cycle started(Jan=>1): "))
 	dd = int(input("Enter the day your cycle started(1-31): "))
 	cycle_duration = int(input("\nEnter your average cycle length (21-35 days): "))

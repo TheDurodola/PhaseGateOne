@@ -1,20 +1,20 @@
 import java.util.Scanner;
 import java.time.LocalDate;
 
+
 public class MenstrualApp{
 
 public static void main(String[] args){
 
 Scanner input = new Scanner(System.in);
-
+LocalDate date = LocalDate.now();
 System.out.println("WELCOME TO YRSD BOO TING");
 
 
-System.out.print("Enter the year: ");
-int year = input.nextInt();
-System.out.print("Enter the month your cycle started:: ");
+int year = date.getYear();
+System.out.print("Enter the month your cycle started (Jan=>1): ");
 int month = input.nextInt();
-System.out.print("Enter the day your cycle started: ");
+System.out.print("Enter the day your cycle started(1-31): ");
 int day = input.nextInt();
 System.out.print("What is your average cycle duration: ");
 int cycleDurationLength = input.nextInt();
