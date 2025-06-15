@@ -11,3 +11,9 @@ def add_contact_to_phonebook(list, first_name, last_name, phone_number):
 			print("INVALID NUMBER")
 	else:
 		print("INVALID NAME INPUT");
+
+
+def remove_contact(list, contact_to_be_removed):
+	list.pop(contact_to_be_removed-1)
+	print("Contact Removed.")
+	return list
