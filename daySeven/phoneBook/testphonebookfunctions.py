@@ -20,3 +20,9 @@ class TestPhoneBook(TestCase):
 		actual = add_contact_to_phonebook(phonebook_database, "Serial", "Killer", 0)
 		expected = None
 		self.assertEqual(actual, expected)
+
+	def test_that_remove_contact_works(self):
+		phonebook_database =  [["bolaji", "durodola", 814826070],["Unilag", "Baddie", 814820666]]
+		actual = remove_contact(phonebook_database, 1)
+		expected =  [["bolaji", "durodola", 814826070]]
+		self.assertEqual(actual, expected)
