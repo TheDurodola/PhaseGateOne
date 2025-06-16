@@ -17,7 +17,6 @@ while(loopCondition == 0){
 			let lastName = prompt("Enter the last name: ");
 			let phoneNumber = prompt("Enter the phone number: ");
 			addContact(phoneDatabase,firstName, lastName, phoneNumber);
-			console.log(phoneDatabase)
 			break;
 
 		case 2:
@@ -29,14 +28,43 @@ while(loopCondition == 0){
 			console.log("Contact Removed.");
 			break;
 		case 3:
-			console.log("Mangoes and papayas are $2.79 a pound.");
+			console.log("\n1) Find by First Name \n2) Find by Last Name \n3) Find by Phone Number\n");
+			let findChoice = Number(prompt("Enter your move: "));
+			switch(findChoice){
+				case 1:
+					let findFirstName = prompt("Enter your first name: ");
+					for(let index = 0; index < phoneDatabase.length; index++){
+						if(findFirstName===phoneDatabase[index][0]){
+							console.log(`First Name: ${phoneDatabase[index][0]}\n Last Name: ${phoneDatabase[index][1]}\n Phone Number: ${phoneDatabase[index][2]}`)
+						}
+					}
+					break;
+				case 2:
+					let findLastName = prompt("Enter your last name: ");
+					for(let index = 0; index < phoneDatabase.length; index++){
+						if(findLastName===phoneDatabase[index][1]){
+							console.log(`First Name: ${phoneDatabase[index][0]}\n Last Name: ${phoneDatabase[index][1]}\n Phone Number: ${phoneDatabase[index][2]}`)
+						}
+					}
+					break;
+				case 3:
+					let findPhoneNumber = prompt("Enter your phone number: ");
+					for(let index = 0; index < phoneDatabase.length; index++){
+						if(findPhoneNumber===phoneDatabase[index][0]){
+							console.log(`First Name: ${phoneDatabase[index][0]}\n Last Name: ${phoneDatabase[index][1]}\n Phone Number: ${phoneDatabase[index][2]}`)
+						}
+					}
+					break;
+
+			
+			}
 			break;
 		case 4:
 			for(let index = 0; index < phoneDatabase.length; index++){
 			console.log(`${index+1}) ${phoneDatabase[index][0]}`);
 			}
 			let selectionEdit = Number(prompt("Select the contact: "));
-			console.log("\n1)Edit First Name\n2) Edit Last Name\nEdit Phone Number\n\n")
+			console.log("\n1)Edit First Name\n2) Edit Last Name\n3)Edit Phone Number\n\n")
 			let editChoose = Number(prompt("Select: "));
 			switch(editChoose){
 				case 1:
@@ -54,7 +82,7 @@ while(loopCondition == 0){
 
 				}
 
-
+			break;
 		case 0:
 			loopCondition = 1;
 			break;
