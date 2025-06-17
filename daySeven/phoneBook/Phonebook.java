@@ -74,15 +74,18 @@ Input: """;
 			System.out.print("Enter any key to exit: ");
 			String exit3 = input.next();
 			break;
+		default:
+			System.out.print("Try dey enter correct thing once once");
 			
 		}
-		
+		break;
 	case 4:
 		for(int index = 0; index < phonebookDatabase.size(); index++){
 		System.out.printf("%d   %s%n", index+1, phonebookDatabase.get(index)[0]);	
 		}
 		System.out.print("What contact would you like to edit: ");
 		int editSelection = input.nextInt();
+		if(editSelection<=phonebookDatabase.size()){
 		System.out.print("\n\n1) Edit First Name\n2) Edit Last Name\n3) Edit Phone Number\n\nEnter Choose: ");
 		int navi = input.nextInt();
 		switch(navi){
@@ -123,7 +126,10 @@ Input: """;
 				System.out.print("INVALID INPUT");
 				break;
 
-			}
+			}}
+		else{
+			System.out.print("INVALID");
+		}
 		break;
 
 
