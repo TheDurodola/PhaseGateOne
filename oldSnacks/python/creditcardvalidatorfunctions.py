@@ -80,12 +80,14 @@ def get_issuer(credit_card_number):
 
 	if list_of_single_digits[0] == 4:
 		print("**Credit Card Type: VISA")
-	if list_of_single_digits[0] == 5:
+	elif list_of_single_digits[0] == 5:
 		print("**Credit Card Type: MASTERCARD")
-	if list_of_single_digits[0] == 6:
+	elif list_of_single_digits[0] == 6:
 		print("**Credit Card Type: DISCOVER")
-	if list_of_single_digits[0] == 3 and list_of_single_digits[1] == 7:
+	elif list_of_single_digits[0] == 3 and list_of_single_digits[1] == 7:
 		print("**Credit Card Type: AMERICAN EXPRESS")
+	else:
+		print("**Credit Card Type: INVALID")
 	
 
 def get_sum_of_odd_postioned_numbers(credit_card_number):
