@@ -12,7 +12,7 @@ System.out.println("WELCOME TO YRSD BOO TING");
 
 
 int year = date.getYear();
-System.out.print("Enter the month your cycle started (Jan=>1): ");
+System.out.print("Enter the month your cycle started (1-12): ");
 int month = input.nextInt();
 System.out.print("Enter the day your cycle started(1-31): ");
 int day = input.nextInt();
@@ -20,7 +20,6 @@ System.out.print("What is your average cycle duration: ");
 int cycleDurationLength = input.nextInt();
 System.out.print("What is your average period days: ");
 int flowDaysDuration = input.nextInt();
-
 
 
 LocalDate dateOfStartOfMenstrualCycle = LocalDate.of(year, month, day);
