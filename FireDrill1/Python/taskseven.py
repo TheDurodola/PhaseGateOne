@@ -3,6 +3,7 @@ for index in range(1,11):
 	if index%4==0:
 		multiple = index
 		for count in range(5):
+			sum = sum + multiple
 			multiple = multiple * index
-		sum = sum + multiple
+
 	print(sum)

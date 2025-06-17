@@ -7,13 +7,13 @@ for(int index= 1; index < 11; index++){
 	if(index%4==0){
 
 		int multiple = index;
-		
-		for(int count = 0 ; count < 5; count++){
 			
+		for(int count = 0 ; count < 5; count++){
+			sum = sum + multiple;
 			multiple = multiple * index;
 				
 		}	
-		sum = sum + multiple;
+
 		
 	}
 	System.out.printf("%d ", sum);
